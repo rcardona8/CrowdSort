@@ -1,18 +1,16 @@
-﻿@page "/Error"
+﻿@attribute [OutputCache(Duration = 300)]
+@page "/Error"
 @using System.Diagnostics
 
 <PageTitle>Error</PageTitle>
-
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
-
 @if (ShowRequestId)
 {
     <p>
         <strong>Request ID:</strong> <code>@requestId</code>
     </p>
 }
-
 <h3>Development Mode</h3>
 <p>
     Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
@@ -24,13 +22,11 @@
     and restarting the app.
 </p>
 
-@code{
+@code {
     [CascadingParameter]
     public HttpContext? HttpContext { get; set; }
-
     private string? requestId;
     private bool ShowRequestId => !string.IsNullOrEmpty(requestId);
-
     protected override void OnInitialized()
     {
         requestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
