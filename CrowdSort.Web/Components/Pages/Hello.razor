@@ -1,6 +1,8 @@
 ﻿@attribute [StreamRendering(true)]
 @attribute [OutputCache(Duration = 60)]
-@inject CrowdSortApiClient CrowdSortApi
+@using CrowdSort.ApiClient
+@using CrowdSort.Services
+@inject RestClient CrowdSortRestClient
 @page "/hello"
 @rendermode InteractiveServer
 
@@ -13,7 +15,7 @@
 }
 else
 {
-    @helloReply.message
+    @helloReply.Message
     <br />
     <button class="btn btn-primary" @onclick="NextGreetingAsync">NextGreetingAsync</button>
 }
@@ -23,13 +25,13 @@ else
     private HelloReply? helloReply;
     protected override async Task OnInitializedAsync()
     {
-        helloReply = await CrowdSortApi.GetGreeterAsync();
+        helloReply = await CrowdSortRestClient.GetGreeterAsync();
     }
 
     string[] names = new string[] { "Alpha", "Bravo", "Charlie" };
     byte currentIndex = 0;
     private async Task NextGreetingAsync()
     {
-        helloReply = await CrowdSortApi.GetGreeterAsync(names[currentIndex++ % 3]);
+        helloReply = await CrowdSortRestClient.GetGreeterAsync(names[currentIndex++ % 3]);
     }
 }
