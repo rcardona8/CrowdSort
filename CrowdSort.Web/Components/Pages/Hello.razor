@@ -1,0 +1,35 @@
+﻿@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 60)]
+@inject CrowdSortApiClient CrowdSortApi
+@page "/hello"
+@rendermode InteractiveServer
+
+<PageTitle>Hello</PageTitle>
+<h1>Hello</h1>
+<p>Greeter test page</p>
+@if (helloReply == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @helloReply.message
+    <br />
+    <button class="btn btn-primary" @onclick="NextGreetingAsync">NextGreetingAsync</button>
+}
+
+@code
+{
+    private HelloReply? helloReply;
+    protected override async Task OnInitializedAsync()
+    {
+        helloReply = await CrowdSortApi.GetGreeterAsync();
+    }
+
+    string[] names = new string[] { "Alpha", "Bravo", "Charlie" };
+    byte currentIndex = 0;
+    private async Task NextGreetingAsync()
+    {
+        helloReply = await CrowdSortApi.GetGreeterAsync(names[currentIndex++ % 3]);
+    }
+}
