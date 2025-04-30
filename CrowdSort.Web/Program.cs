@@ -1,4 +1,4 @@
-using CrowdSort.Web;
+using CrowdSort.ApiClient;
 using CrowdSort.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +11,7 @@ builder.AddRedisOutputCache("cache");
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddHttpClient<CrowdSortApiClient>(client =>
+builder.Services.AddHttpClient<RestClient>(client =>
 {
     // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
     // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
