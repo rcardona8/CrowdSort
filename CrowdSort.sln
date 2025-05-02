@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.Web", "CrowdSort.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.Tests", "CrowdSort.Tests\CrowdSort.Tests.csproj", "{D5DD3F25-34AA-9B20-7F5E-CD63FF546D05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.ApiClient", "CrowdSort.ApiClient\CrowdSort.ApiClient.csproj", "{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.Clients", "CrowdSort.ApiClient\CrowdSort.Clients.csproj", "{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

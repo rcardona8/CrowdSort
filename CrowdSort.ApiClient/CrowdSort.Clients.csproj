@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.66.0" />
     <PackageReference Include="Grpc.Tools" Version="2.71.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,13 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\CrowdSort.ApiService\Protos\greet.proto">
-      <Link>Protos\greet.proto</Link>
-    </Protobuf>
+    <Folder Include="Protos\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Protos\" />
+    <Protobuf Include="..\CrowdSort.ApiService\Protos\greeting.proto" GrpcServices="Client">
+      <Link>Protos\greeting.proto</Link>
+    </Protobuf>
+    <Protobuf Include="..\CrowdSort.ApiService\Protos\sorting.proto" GrpcServices="Client">
+      <Link>Protos\sorting.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

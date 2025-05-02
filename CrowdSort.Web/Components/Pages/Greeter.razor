@@ -1,37 +1,37 @@
 ﻿@attribute [StreamRendering(true)]
 @attribute [OutputCache(Duration = 60)]
-@using CrowdSort.ApiClient
+@using CrowdSort.Clients.Rest
 @using CrowdSort.Services
-@inject RestClient CrowdSortRestClient
-@page "/hello"
+@inject GreeterClient greetingClient
+@page "/greeter"
 @rendermode InteractiveServer
 
-<PageTitle>Hello</PageTitle>
-<h1>Hello</h1>
+<PageTitle>Greeter</PageTitle>
+<h1>Greeter</h1>
 <p>Greeter test page</p>
-@if (helloReply == null)
+@if (greetReply == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    @helloReply.Message
+    @greetReply.Message
     <br />
     <button class="btn btn-primary" @onclick="NextGreetingAsync">NextGreetingAsync</button>
 }
 
 @code
 {
-    private HelloReply? helloReply;
+    private GreetReply? greetReply;
     protected override async Task OnInitializedAsync()
     {
-        helloReply = await CrowdSortRestClient.GetGreeterAsync();
+        greetReply = await greetingClient.GetGreetingAsync();
     }
 
     string[] names = new string[] { "Alpha", "Bravo", "Charlie" };
     byte currentIndex = 0;
     private async Task NextGreetingAsync()
     {
-        helloReply = await CrowdSortRestClient.GetGreeterAsync(names[currentIndex++ % 3]);
+        greetReply = await greetingClient.GetGreetingAsync(names[currentIndex++ % 3]);
     }
 }

@@ -13,5 +13,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseExceptionHandler();
 app.MapDefaultEndpoints();
-app.MapGrpcService<GreeterService>();
+app.MapGrpcService<GreetingService>();
+app.MapGrpcService<SortingService>();
 app.Run();
