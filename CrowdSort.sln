@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36017.23 d17.14
+VisualStudioVersion = 17.14.36017.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.AppHost", "CrowdSort.AppHost\CrowdSort.AppHost.csproj", "{FC5ACE64-468F-41C3-A71A-F11E7FA259FC}"
 EndProject
@@ -11,6 +11,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.Web", "CrowdSort.Web\CrowdSort.Web.csproj", "{60B1AA88-EAF9-E5F2-7F38-10FCB5726D6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.Tests", "CrowdSort.Tests\CrowdSort.Tests.csproj", "{D5DD3F25-34AA-9B20-7F5E-CD63FF546D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSort.Clients", "CrowdSort.ApiClient\CrowdSort.Clients.csproj", "{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{D5DD3F25-34AA-9B20-7F5E-CD63FF546D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5DD3F25-34AA-9B20-7F5E-CD63FF546D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5DD3F25-34AA-9B20-7F5E-CD63FF546D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5E764D-6D4E-4BB1-AA94-990DF4CE3E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

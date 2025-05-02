@@ -1,23 +1,25 @@
 syntax = "proto3";
-import "google/api/annotations.proto";
 
-service Greeter
+import "google/api/annotations.proto";
+package CrowdSort.Services;
+
+service Greeting
 {
-  rpc Hello (HelloRequest) returns (HelloReply)
+  rpc Greeter (GreetRequest) returns (GreetReply)
   {
     option (google.api.http) =
     {
-      get: "/greeter/{name}",
+      get: "/greet/{name}",
     };
   }
 }
 
-message HelloRequest
+message GreetRequest
 {
   string name = 1;
 }
 
-message HelloReply
+message GreetReply
 {
   string message = 1;
 }
