@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "google/api/annotations.proto";
+import "Protos/SorterContracts.proto";
+package CrowdSort.Services;
+service Sorter
+{
+	rpc SortsGet (SorterContracts.SortsGetRequest) returns (SorterContracts.SortsGetReply)
+	{
+		option (google.api.http) =
+		{
+			get: "/sorts",
+		};
+	}
+
+	rpc SortGet (SorterContracts.SortGetRequest) returns (SorterContracts.SortGetReply)
+	{
+		option (google.api.http) =
+		{
+			get: "/sort/{sortId}",
+		};
+	}
+
+	rpc ItemsGet (SorterContracts.ItemsGetRequest) returns (SorterContracts.ItemsGetReply)
+	{
+		option (google.api.http) =
+		{
+			put: "/sort/{sortId}/items",
+		};
+	}
+}

@@ -1,5 +1,5 @@
 ﻿using System.Net.Http.Json;
-using CrowdSort.Services;
+using CrowdSort.Contracts.Greeter;
 
 namespace CrowdSort.Clients.Rest
 {

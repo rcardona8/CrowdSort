@@ -1,7 +1,7 @@
 ﻿@attribute [StreamRendering(true)]
 @attribute [OutputCache(Duration = 60)]
 @using CrowdSort.Clients.Rest
-@using CrowdSort.Services
+@using CrowdSort.Contracts.Greeter
 @inject GreeterClient greetingClient
 @page "/greeter"
 @rendermode InteractiveServer
