@@ -1,4 +1,4 @@
-﻿using CrowdSort.Services;
+﻿using SorterContracts;
 
 namespace CrowdSort.Clients.Rest
 {

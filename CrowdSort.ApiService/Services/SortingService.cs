@@ -1,8 +1,9 @@
 ﻿using Grpc.Core;
+using SorterContracts;
 
 namespace CrowdSort.Services
 {
-    public class SortingService : Sorting.SortingBase
+    public class SortingService : Sorter.SorterBase
     {
         private readonly ILogger<SortingService> _logger;
         private List<Sort> _sorts = new ();

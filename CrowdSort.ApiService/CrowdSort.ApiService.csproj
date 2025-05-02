@@ -15,8 +15,10 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="9.0.4" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
-		<Protobuf Include="Protos\sorting.proto" GrpcServices="Server" />
-		<Protobuf Include="Protos\greeting.proto" GrpcServices="Server" />
-	</ItemGroup>
+    <Protobuf Include="Protos\GreeterContracts.proto" GrpcServices="None" />
+    <Protobuf Include="Protos\GreeterService.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\SorterContracts.proto" GrpcServices="None" />
+    <Protobuf Include="Protos\SorterService.proto" GrpcServices="Server" />
+  </ItemGroup>
 
 </Project>

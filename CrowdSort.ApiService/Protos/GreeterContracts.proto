@@ -1,0 +1,10 @@
+syntax = "proto3";
+package CrowdSort.Contracts.Greeter;
+message GreetRequest
+{
+  string name = 1;
+}
+message GreetReply
+{
+  string message = 1;
+}

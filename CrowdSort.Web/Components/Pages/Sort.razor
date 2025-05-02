@@ -2,7 +2,7 @@
 @attribute [OutputCache(Duration = 60)]
 @page "/sorts/{sortId}"
 @using CrowdSort.Clients.Rest
-@using CrowdSort.Services
+@using SorterContracts
 @using System.Linq
 @inject SorterClient sorterClient
 @rendermode InteractiveServer
