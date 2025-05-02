@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+package CrowdSort.Services;
+
+service Sorting
+{
+	rpc SortsGet (SortsGetRequest) returns (SortsGetReply)
+	{
+		option (google.api.http) =
+		{
+			get: "/sorts",
+		};
+	}
+
+	rpc SortGet (SortGetRequest) returns (SortGetReply)
+	{
+		option (google.api.http) =
+		{
+			get: "/sort/{sortId}",
+		};
+	}
+
+	rpc ItemsGet (ItemsGetRequest) returns (ItemsGetReply)
+	{
+		option (google.api.http) =
+		{
+			put: "/sort/{sortId}/items",
+		};
+	}
+}
+
+message Sort
+{
+	uint64 id = 1;
+	string name = 2;
+	repeated Item items = 3;
+}
+message SortsGetRequest
+{
+	// TODO
+}
+message SortsGetReply
+{
+	repeated Sort sorts = 1;
+}
+message SortGetRequest
+{
+	uint64 sortId = 1;
+}
+message SortGetReply
+{
+	Sort sort = 1;
+}
+
+message Item
+{
+	uint32 id = 1;
+	string name = 2;
+	uint64 votes = 3;
+}
+message ItemsGetRequest
+{
+	uint64 sortId = 1;
+}
+message ItemsGetReply
+{
+	repeated Item items = 1;
+}

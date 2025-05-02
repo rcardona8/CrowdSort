@@ -1,0 +1,50 @@
+﻿@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 60)]
+@page "/sorts/{sortId}"
+@using CrowdSort.Clients.Rest
+@using CrowdSort.Services
+@using System.Linq
+@inject SorterClient sorterClient
+@rendermode InteractiveServer
+
+<PageTitle>Sorts</PageTitle>
+<h1>Sorts</h1>
+<p>Sorts main page</p>
+@if (sortedItems == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ItemName</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in sortedItems)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Votes</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code
+{
+    [Parameter]
+    public required string sortId { get; set; }
+
+    private IOrderedEnumerable<Item>? sortedItems;
+    protected override async Task OnInitializedAsync()
+    {
+        var sortIdUlong = ulong.Parse(sortId);
+        var sortGetReply = await sorterClient.GetSortAsync(sortIdUlong);
+        sortedItems = sortGetReply.Sort.Items.OrderByDescending(x => x.Votes);
+    }
+}
